@@ -7,7 +7,7 @@ screen =  Screen()
 screen.setup(width=800, height=600)
 screen.bgcolor("black")
 screen.title("PONG")
-screen.tracer(0)
+screen.tracer(0.1)
 
 
 right_paddle = Paddle(350, 0)
@@ -22,11 +22,15 @@ screen.onkey(left_paddle.down2, "s")
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(0.08)
     screen.update()
     ball.move()
 
-    if ball.ycor() > 300 or ball.ycor() < -300:
+    if ball.ycor() > 280 or ball.ycor() < -280:
         ball.bounce()
-    
+    elif ball.distance(right_paddle) < 20:
+        ball.reflect()
+    elif ball.distance(left_paddle) < 20:
+        ball.reflect()
+
 screen.exitonclick()
