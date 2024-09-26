@@ -22,15 +22,16 @@ screen.onkey(left_paddle.down2, "s")
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.08)
+    time.sleep(0.1)
     screen.update()
     ball.move()
 
+    #detect collision with wall
     if ball.ycor() > 280 or ball.ycor() < -280:
-        ball.bounce()
-    elif ball.distance(right_paddle) < 20:
-        ball.reflect()
-    elif ball.distance(left_paddle) < 20:
-        ball.reflect()
+        ball.bounce_y()
+
+    if ball.distance(right_paddle) < 50 and ball.xcor() > 320 or ball.distance(left_paddle) < 25 and ball.xcor() > -350:
+        ball.bounce_x()
+    
 
 screen.exitonclick()
