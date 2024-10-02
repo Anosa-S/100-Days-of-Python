@@ -16,6 +16,6 @@ class Player(Turtle):
         self.goto(STARTING_POSITION)
         
     def up(self):
-        new_y = self.ycor() + 10
+        new_y = self.ycor() + 20
         if new_y < 290:
             self.goto(self.xcor(), new_y)

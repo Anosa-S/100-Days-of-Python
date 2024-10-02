@@ -8,8 +8,10 @@ MOVE_INCREMENT = 10
 class Cars(Turtle):
 
     def __init__(self):
+        super().__init__()
         self.color("Green")
         self.penup()
-        self.shape("turtle")
-        self.setheading(90)
-        self.goto(0, 0)
+        self.shape("square")
+        self.setheading(180)
+        self.color(random.choice(COLORS))
+        self.goto(280, random.randint(-250, 250))
